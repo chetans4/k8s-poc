@@ -20,7 +20,8 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 > minikube start --driver=docker  
 > minikube status  
 > minikube dashboard  
-> 
+> kubectl scale deployment webapp-deployment --replicas=2
+
 #### Start MongoDB and Webapp
 > kubectl apply -f mongo-config.yaml  
 > kubectl apply -f mongo-secret.yaml  
