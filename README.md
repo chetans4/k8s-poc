@@ -20,7 +20,6 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 > minikube start --driver=docker  
 > minikube status  
 > minikube dashboard  
-> kubectl scale deployment webapp-deployment --replicas=2
 
 #### Start MongoDB and Webapp
 > kubectl apply -f mongo-config.yaml  
@@ -39,7 +38,8 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 > kubectl get services --all-namespaces -o wide  
 > minikube dashboard  
 > minikube delete  
-> minikube start --driver=docker --ports=30100:30100  
+> minikube start --driver=docker --ports=30100:30100
+> kubectl scale deployment webapp-deployment --replicas=2  
 
 ##### SSH in minikube
 > minikube ssh  
