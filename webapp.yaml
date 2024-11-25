@@ -35,6 +35,12 @@ spec:
                 configMapKeyRef:
                   name: mongo-config
                   key: mongo-url
+          resources:
+            requests:
+              cpu: "100m"   # Request 100 millicores (0.1 core)
+            limits:
+              cpu: "500m"   # Maximum 500 millicores (0.5 core)
+
 ---
 apiVersion: v1
 kind: Service

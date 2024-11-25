@@ -62,7 +62,10 @@ Now access application with http://localhost:8080/
 
 If you can't access the NodePort service webapp with `MinikubeIP:NodePort`, execute the following command:
 
-> minikube service webapp-service
+```bash
+minikube service webapp-service
+```
+
 
 This command creates a tunnel and provides a new URL for access, expect something similar to this:
 
@@ -103,3 +106,23 @@ Now you can connect to the webapp using http://localhost:30100 or http://127.0.0
 Source: https://github.com/kubernetes/minikube/issues/11193
 
 <br />
+
+### Automatic Scaling with Horizontal Pod Autoscaler
+We can also configure Kubernetes to automatically scale the number of pods based on CPU or memory utilization using the Horizontal Pod Autoscaler (HPA). This is useful for handling dynamic workloads.
+
+To create an HPA, use this command (here we want to scale based on CPU usage):
+
+```bash
+kubectl autoscale deployment webapp-deployment --cpu-percent=50 --min=1 --max=10
+```
+
+### Adding volume to mongo DB pod
+> kubectl apply -f mongo-pv.yaml
+> kubectl apply -f mongo-pvc.yaml
+
+
+#### Some other services or kubernetes commands
+> kubectl get apiservices  
+> kubectl top nodes  
+> kubectl top pods
+> kubectl get hpa
